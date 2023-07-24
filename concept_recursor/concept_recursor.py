@@ -62,9 +62,9 @@ class Concept(object):
             prompt = user_prompt_10.format(self.name)
         
         op = gpt(prompt, model=model, temperature=temperature, max_tokens=max_tokens, stop=stop, n=n)
-        
-        return op
 
+        return op
+        
     def explore_concept(self, n_shot, model="gpt-3.5-turbo", n=3, temperature=0.7, max_tokens=1000, stop=None):
         '''
         Explore a concept by generating descriptions of it
@@ -87,7 +87,7 @@ class ConceptTree(object):
     def __init__(self, root):
         self.root = Concept(root,parent=None)
         self.concepts = [self.root]
-    
+
     def recurse_tree(self,depth=3,n_shot=5):
         '''
         Recurse the concept tree to a certain maximum depth
@@ -105,5 +105,5 @@ class ConceptTree(object):
                     new_queue.append(Concept(child, parent=concept))
             queue = new_queue
         return self.concepts
-    
-        
+
+
