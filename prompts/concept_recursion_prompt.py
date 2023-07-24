@@ -1,42 +1,18 @@
 
-system_prompt = '''You are a helpful, enthusiastic assistant to the blind who
-                 helps them understand the outward appearance of everyday objects. 
-                 Your response should be a detailed single-line description without 
-                 mention of the object itself'''
-
 #5 shot prompt
-user_prompt_5 = '''
-            Input: Describe the appearance of a chair? 
-            Answer: A furniture with a <object>backrest</object>, <object> seat</object> for sitting and sometimes an <object>armrest</object>
-            Input: Describe the appearance of a smartphone?
-            Answer: A handheld device with a <object>touchscreen</object> display, physical <object>buttons</object>, and a <object>camera</object> on the back.
-            Input: Describe the appearance of a sweater?
-            Answer: A garment made of knitted fabric, worn over the upper body with long or short <object>sleeves</object> and a <object>collar</object>.
-            Input: Describe the appearance of a sneaker? 
-            Answer: A type of footwear with a rubber <object>sole</object>, laced <object>upper</object>, and comfortable <object>cushioning</object>
-            Input: Describe the appearance of a microwave?              
-            Answer: A kitchen appliance with a <object>door</object>, digital <object>control panel</object>, and a <object>turntable</object> inside
-            Input: Describe the appearance of a {input}?
-            '''
+concept_recursion_prompt = '''
+            You are a helpful, enthusiastic assistant that describes the appearance of objects. Your response should be a detailed single-line description without mention of the object itself. 
+            Input: Describe a chair
+            Answer: A sturdy, wooden <object>four-legged</object> seat with a slightly curved <object>backrest</object>, upholstered in soft fabric, and featuring a wide, contoured <object>flat surface</object> for comfortable sitting.
 
-#10 shot prompt
-user_prompt_10 = '''
-            Input: Describe the appearance of a chair?  
-            Answer: A furniture with a <object>backrest</object>, <object> seat</object> for sitting and sometimes an <object>armrest</object>
-            Input: Describe the appearance of a smartphone?
-            Answer: A handheld device with a <object>touchscreen</object> display, physical <object>buttons</object>, and a <object>camera</object> on the back.
-            Input: Describe the appearance of a sweater?
-            Answer: A garment made of knitted fabric, worn over the upper body with long or short <object>sleeves</object> and a <object>collar</object>.
-            Input: Describe the appearance of a sneaker?
-            Answer: A type of footwear with a rubber <object>sole</object>, laced <object>upper</object>, and comfortable <object>cushioning</object>
-            Input: Describe the appearance of a microwave?
-            Answer: A kitchen appliance with a <object>door</object>, digital <object>control panel</object>, and a <object>turntable</object> inside
-            Input: Describe the appearance of a table?
-            Answer: A furniture with a <object>flat</object> <object>surface</object> supported by <object>legs</object>
-            Input: Describe the appearance of a laptop?
-            Answer: A portable computer with a <object>screen</object>, <object>keyboard</object>, and <object>trackpad</object>
-            Input: Describe the appearance of a book?
-            Answer: A rectangular object with <object>pages</object> bound together, often with a <object>cover</object> and <object>text</object> printed on the pages.
-            Input: Describe the appearance of a car?
-            Input: A vehicle with four <object>wheels</object>, a <object>windshield</object>, <object>doors</object> on each side, and a <object>license plate</object> on the rear.
-'''
+            Input: Describe a microwave
+            Answer: An efficient, stainless steel rectangular <object>metal box</object> with a hinged <object>glass door</object>, complemented by a user-friendly <object>digital display</object> and a variety of buttons on the sleek <object>control panel</object>.
+
+            Input: Describe a sneaker
+            Answer: High-quality <object>lace-up</object> athletic footwear crafted with a durable <object>rubber sole</object>, a cushioned <object>collar</object> and tongue for added support, and stylish <object>logo</object> detailing on both the sides and tongue.
+
+            Input: Describe a sweater
+            Answer: A cozy, hand-knitted woolen garment featuring intricate cable patterns, long <object>snug-fitting sleeves</object>, a soft ribbed <object>crew neck</object>, and a comfortable, slightly loose fit for warmth and style.
+
+            Input: Describe a {input}
+            '''
