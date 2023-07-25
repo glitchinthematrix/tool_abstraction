@@ -79,7 +79,7 @@ class ConceptTree(object):
         self.root = Concept(root,parent=None)
         self.concepts = [self.root]
 
-    def recurse_tree(self,depth=2):
+    def recurse_tree(self,depth=3):
         '''
         Recurse the concept tree to a certain maximum depth
         '''
@@ -91,9 +91,10 @@ class ConceptTree(object):
             new_queue = []
             for concept in queue:
                 descriptions, children = concept.explore_concept()
+                print(descriptions)
                 self.concepts.append(concept)
                 for child in children:
-                    new_concept = Concept(child,parent=concept.name)
+                    new_concept = Concept(child,parent=concept.name,descriptions=[])
                     new_queue.append(new_concept)
             queue = new_queue
         return self.concepts
@@ -114,7 +115,7 @@ def main():
 
     #some unit tests
     concept_tree = ConceptTree("television")
-    concepts = concept_tree.recurse_tree(depth=2)
+    concepts = concept_tree.recurse_tree(depth=3)
     all_concepts = concept_tree.return_dictionary()
     print(all_concepts)
     #save dictionary as json file
